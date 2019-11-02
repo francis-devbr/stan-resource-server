@@ -120,27 +120,25 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
 		createUserMaster();
 		
-		/*
-		 * createPaises();
-		 * 
-		 * createUfPaisBr();
-		 * 
-		 * createTipoLogradouro();
-		 * 
-		 * createLogradourosUfSP();
-		 * 
-		 * createEmpresa();
-		 * 
-		 * createFuncionarioSupervisor();
-		 * 
-		 * createFuncionarioAtendente();
-		 * 
-		 * createFuncionarioTecnico();
-		 * 
-		 * createMotorista();
-		 * 
-		 * createVeiculo();
-		 */
+		createPaises();
+
+		createUfPaisBr();
+
+		createTipoLogradouro();
+
+		createLogradourosUfSP();
+
+		createEmpresa();
+
+		//createFuncionarioSupervisor();
+
+		//createFuncionarioAtendente();
+
+		//createFuncionarioTecnico();
+
+		//createMotorista();
+
+		//createVeiculo();
 
 		alreadySetup = true;
 	}
@@ -148,11 +146,11 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 	private void createUserMaster() {
 
 		
-		 Usuario user = Usuario.builder() .username("master")
-		 .password(passwordEncoder.encode("123456")) .isEnable(true) .build();
+		  Usuario user = Usuario.builder() .username("master")
+		  .password(passwordEncoder.encode("123456")) .isEnable(true) .build();
+		  
+		  criarUsuarioService.createUserIfNotFound(user, "ROLE_MASTER");
 		 
-		 criarUsuarioService.createUserIfNotFound(user, "ROLE_MASTER");
-		
 
 	}
 
@@ -482,7 +480,6 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 		criarEstadoService.criar(estados);
 	}
 
-
 	private void createEmpresa() {
 
 		Logradouro logradouro = obterDetalheLogradouroService.findByCep("01308040");
@@ -599,7 +596,6 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
 		criarFuncionarioService.criar(funcionario);
 
-		//createUsuarioIfNotFound("supervisor", "1234", "ROLE_ADMIN", pessoa);
 	}
 
 	private void createFuncionarioTecnico() {
@@ -658,7 +654,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
 		criarFuncionarioService.criar(funcionario);
 
-		//createUsuarioIfNotFound("tecnico001", "1234", "ROLE_USER", pessoa);
+
 	}
 
 	private void createFuncionarioAtendente() {
@@ -717,17 +713,16 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
 		criarFuncionarioService.criar(funcionario);
 
-		//createUsuarioIfNotFound("atendente001", "1234", "ROLE_USER", pessoa);
-
 	}
 
 	
-	private void createUsuarioIfNotFound(String username, String password, String regra,
+	public void createUsuarioIfNotFound(String username, String password, String regra,
 			Pessoa pessoa) {
 
 			Usuario usuario = Usuario.builder()
 					.username(username)
 					.password(passwordEncoder.encode(password))
+					.pessoa(pessoa)
 					.isEnable(true)
 					.build();
 		criarUsuarioService.createUserIfNotFound(usuario, regra);

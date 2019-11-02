@@ -8,7 +8,6 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -40,9 +39,6 @@ public class UsuarioJpaEntity extends BaseEntityAudit {
 
 	@NotNull
 	private String password;
-
-	@OneToOne
-	private PessoaJpaEntity pessoaJpaEntity;
 
 	@Fetch(FetchMode.SELECT)
 	@ManyToMany(fetch = FetchType.EAGER)

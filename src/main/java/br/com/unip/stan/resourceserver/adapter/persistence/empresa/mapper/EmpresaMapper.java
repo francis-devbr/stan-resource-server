@@ -37,6 +37,7 @@ public class EmpresaMapper {
 				.inscricaoEstadual(empresaJpaEntity.getInscricaoEstadual())
 				.isEnable(empresaJpaEntity.isEnable())
 				.build();
+		 
 	}
 
 	public static EmpresaJpaEntity maptToJpaEntity(Empresa empresa) {

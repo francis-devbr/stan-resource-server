@@ -1,4 +1,4 @@
-package br.com.unip.stan.resourceserver.adapter.web;
+package br.com.unip.stan.resourceserver.adapter.web.test;
 
 import java.util.ArrayList;
 import java.util.List;

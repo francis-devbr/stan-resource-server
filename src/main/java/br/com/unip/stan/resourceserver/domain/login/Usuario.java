@@ -3,6 +3,7 @@ package br.com.unip.stan.resourceserver.domain.login;
 
 import java.util.Collection;
 
+import br.com.unip.stan.resourceserver.domain.Pessoa;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,5 +21,7 @@ public class Usuario {
 
 	private Collection<Role> roles;
 
+	private Pessoa pessoa;
+	
 	private boolean isEnable;
 }

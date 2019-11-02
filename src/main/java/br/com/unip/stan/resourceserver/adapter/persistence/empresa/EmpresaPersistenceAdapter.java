@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 
 import br.com.unip.stan.resourceserver.adapter.persistence.empresa.mapper.EmpresaMapper;
 import br.com.unip.stan.resourceserver.adapter.persistence.jpa.entity.empresa.EmpresaJpaEntity;
-import br.com.unip.stan.resourceserver.adapter.persistence.jpa.repository.PessoaRepository;
 import br.com.unip.stan.resourceserver.adapter.persistence.jpa.repository.empresa.EmpresaRepository;
 import br.com.unip.stan.resourceserver.domain.Pessoa;
 import br.com.unip.stan.resourceserver.domain.empresa.Empresa;
@@ -19,7 +18,6 @@ import lombok.RequiredArgsConstructor;
 public class EmpresaPersistenceAdapter implements UpdateEmpresaPort,ObterDetalheEmpresaPort{
 
 	private final EmpresaRepository empresaRepository;
-	private final PessoaRepository pessoaRepository;
 	
 	
 	@Override
@@ -31,7 +29,6 @@ public class EmpresaPersistenceAdapter implements UpdateEmpresaPort,ObterDetalhe
 
 	@Override
 	public Empresa findByPessoa(Pessoa pessoa) {
-		
 		Optional<EmpresaJpaEntity> empresaJpaEntity = empresaRepository.findByPessoaJpaEntityId(pessoa.getId());
 		return EmpresaMapper.maptToDomainEntity(empresaJpaEntity).orElse(null);
 	}

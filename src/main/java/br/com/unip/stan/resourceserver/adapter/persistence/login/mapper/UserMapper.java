@@ -2,7 +2,6 @@ package br.com.unip.stan.resourceserver.adapter.persistence.login.mapper;
 
 import java.util.Optional;
 
-import br.com.unip.stan.resourceserver.adapter.persistence.PessoaMapper;
 import br.com.unip.stan.resourceserver.adapter.persistence.jpa.entity.base.UsuarioJpaEntity;
 import br.com.unip.stan.resourceserver.domain.login.Usuario;
 

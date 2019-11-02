@@ -3,6 +3,7 @@ package br.com.unip.stan.resourceserver.adapter.persistence.jpa.entity.empresa;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -31,6 +32,10 @@ public class ClienteJpaEntity extends BaseEntityAudit {
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "pessoa_id", referencedColumnName = "id")
 	private PessoaJpaEntity pessoaJpaEntity;
+	
+	@ManyToOne
+	@JoinColumn(name = "empresa_id", referencedColumnName = "id")
+	private EmpresaJpaEntity empresaJpaEntity;
 
 	@NotNull
 	private boolean isEnable;
