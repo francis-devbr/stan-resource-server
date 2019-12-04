@@ -3,9 +3,13 @@ package br.com.unip.stan.resourceserver.adapter.persistence.jpa.entity.veiculo;
 import java.util.Collection;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import br.com.unip.stan.resourceserver.adapter.persistence.jpa.entity.base.BaseEntityAudit;
 import lombok.AllArgsConstructor;
@@ -30,7 +34,8 @@ public class MarcaJpaEntity extends BaseEntityAudit {
 	@NotNull
 	private String nome;
 
-	@OneToMany
+	@OneToMany(fetch= FetchType.EAGER)
+	@Fetch(FetchMode.SELECT)
 	private Collection<ModeloJpaEntity> modelosJpaEntity;
 
 	@NotNull

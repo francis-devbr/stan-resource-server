@@ -130,15 +130,15 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
 		createEmpresa();
 
-		//createFuncionarioSupervisor();
+		createFuncionarioSupervisor();
 
-		//createFuncionarioAtendente();
+		createFuncionarioAtendente();
 
-		//createFuncionarioTecnico();
+		createFuncionarioTecnico();
 
-		//createMotorista();
+		createMotorista();
 
-		//createVeiculo();
+		createVeiculo();
 
 		alreadySetup = true;
 	}
