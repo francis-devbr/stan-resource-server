@@ -5,8 +5,8 @@ import java.util.Arrays;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
 
-import br.com.unip.stan.resourceserver.domain.login.Role;
-import br.com.unip.stan.resourceserver.domain.login.Usuario;
+import br.com.unip.stan.resourceserver.adapter.persistence.jpa.entity.base.Regra;
+import br.com.unip.stan.resourceserver.adapter.persistence.jpa.entity.base.Usuario;
 import br.com.unip.stan.resourceserver.port.in.login.CriarUsuarioService;
 import br.com.unip.stan.resourceserver.port.out.login.ObterDetalheRolePort;
 import br.com.unip.stan.resourceserver.port.out.login.ObterDetalheUserPort;
@@ -22,16 +22,18 @@ public class CriarUsuarioUseCase implements CriarUsuarioService {
 	private final ObterDetalheRolePort obterDadosRolePort;
 
 	@Override
-	public void createUserIfNotFound(Usuario user, String roleName) {
+	public Usuario createUserIfNotFound(Usuario user, String roleName) {
 
-		Usuario _user = obterDadosUserPort.obter(user.getUsername()).orElse(null);
+		Usuario _user = obterDadosUserPort.obter(user.getUsername());
 
-		Role role = obterDadosRolePort.obter(roleName).orElse(null);
+		Regra role = obterDadosRolePort.obter(roleName).orElse(null);
 
 		if (ObjectUtils.isEmpty(_user)) {
-			user.setRoles(Arrays.asList(role));
-			updateUserPort.salvar(user);
+			user.setRegras(Arrays.asList(role));
+			_user = updateUserPort.salvar(user);
 		}
+
+		return _user;
 
 	}
 

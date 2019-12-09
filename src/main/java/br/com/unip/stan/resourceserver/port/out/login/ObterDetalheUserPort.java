@@ -1,11 +1,14 @@
 package br.com.unip.stan.resourceserver.port.out.login;
 
-import java.util.Optional;
+import java.util.List;
 
-import br.com.unip.stan.resourceserver.domain.login.Usuario;
+import br.com.unip.stan.resourceserver.adapter.persistence.jpa.entity.base.Usuario;
 
 public interface ObterDetalheUserPort {
 
-	Optional<Usuario> obter(String username);
+	Usuario obter(String username);
+
+	List<Usuario> buscarTodos();
+
 
 }

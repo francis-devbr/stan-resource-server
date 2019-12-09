@@ -2,10 +2,10 @@ package br.com.unip.stan.resourceserver.port.out.login;
 
 import java.util.Optional;
 
-import br.com.unip.stan.resourceserver.domain.login.Role;
+import br.com.unip.stan.resourceserver.adapter.persistence.jpa.entity.base.Regra;
 
 public interface ObterDetalheRolePort {
 
-	Optional<Role> obter(String roleName);
+	Optional<Regra> obter(String roleName);
 
 }

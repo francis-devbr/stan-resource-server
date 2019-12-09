@@ -2,12 +2,12 @@ package br.com.unip.stan.resourceserver.adapter.persistence.jpa.repository.empre
 
 import java.util.Optional;
 
-import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import br.com.unip.stan.resourceserver.adapter.persistence.jpa.entity.empresa.EmpresaJpaEntity;
+import br.com.unip.stan.resourceserver.adapter.persistence.jpa.entity.empresa.Empresa;
 
-public interface EmpresaRepository extends PagingAndSortingRepository<EmpresaJpaEntity, Long> {
+public interface EmpresaRepository extends JpaRepository<Empresa, Long> {
 
-	Optional<EmpresaJpaEntity> findByPessoaJpaEntityId (long id);
+	Optional<Empresa> findByCpfOuCnpj(String cpfOuCnpj);
 
 }

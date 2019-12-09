@@ -1,9 +1,9 @@
 package br.com.unip.stan.resourceserver.port.in.login;
 
-import br.com.unip.stan.resourceserver.domain.login.Privilege;
+import br.com.unip.stan.resourceserver.adapter.persistence.jpa.entity.base.Privilegio;
 
 public interface CriarPrivilegeService {
 
-	Privilege createPrivilegeIfNotFound(String name);
+	Privilegio createPrivilegeIfNotFound(String name);
 
 }

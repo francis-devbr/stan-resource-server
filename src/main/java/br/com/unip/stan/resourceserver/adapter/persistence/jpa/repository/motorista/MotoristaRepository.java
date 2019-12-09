@@ -1,9 +1,16 @@
 package br.com.unip.stan.resourceserver.adapter.persistence.jpa.repository.motorista;
 
-import org.springframework.data.repository.PagingAndSortingRepository;
+import java.util.List;
+import java.util.Optional;
 
-import br.com.unip.stan.resourceserver.adapter.persistence.jpa.entity.motorista.MotoristaJpaEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface MotoristaRepository extends PagingAndSortingRepository<MotoristaJpaEntity, Long> {
+import br.com.unip.stan.resourceserver.adapter.persistence.jpa.entity.motorista.Motorista;
 
+public interface MotoristaRepository extends JpaRepository<Motorista, Long> {
+
+	List<Motorista> findByFuncionarioEmpresaCpfOuCnpj(String cnpj);
+	
+	Optional<Motorista> findByIdAndFuncionarioEmpresaCpfOuCnpj(Long id, String cnpj);
+		
 }

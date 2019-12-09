@@ -1,13 +1,9 @@
 package br.com.unip.stan.resourceserver.port.out.localizacao;
 
-import java.util.List;
-
-import br.com.unip.stan.resourceserver.domain.localizacao.Endereco;
+import br.com.unip.stan.resourceserver.adapter.persistence.jpa.entity.localizacao.Endereco;
 
 public interface UpdateEnderecoPort {
 
 	Endereco salvar(Endereco endereco);
-
-	void salvar(List<Endereco> enderecos);
 
 }

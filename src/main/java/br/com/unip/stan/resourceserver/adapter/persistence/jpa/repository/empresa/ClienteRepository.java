@@ -2,8 +2,8 @@ package br.com.unip.stan.resourceserver.adapter.persistence.jpa.repository.empre
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 
-import br.com.unip.stan.resourceserver.adapter.persistence.jpa.entity.empresa.ClienteJpaEntity;
+import br.com.unip.stan.resourceserver.adapter.persistence.jpa.entity.empresa.Cliente;
 
-public interface ClienteRepository extends PagingAndSortingRepository<ClienteJpaEntity, Long> {
+public interface ClienteRepository extends PagingAndSortingRepository<Cliente, Long> {
 
 }

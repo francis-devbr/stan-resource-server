@@ -5,11 +5,11 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import br.com.unip.stan.resourceserver.adapter.persistence.jpa.entity.base.PrivilegioJpaEntity;
+import br.com.unip.stan.resourceserver.adapter.persistence.jpa.entity.base.Privilegio;
 
 @Repository
-public interface PrivilegeRepository extends JpaRepository<PrivilegioJpaEntity, Long> {
+public interface PrivilegeRepository extends JpaRepository<Privilegio, Long> {
 
-	Optional<PrivilegioJpaEntity> findByNome(String name);
+	Optional<Privilegio> findByNome(String name);
 
 }

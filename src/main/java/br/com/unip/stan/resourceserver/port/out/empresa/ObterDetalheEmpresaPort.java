@@ -1,10 +1,14 @@
 package br.com.unip.stan.resourceserver.port.out.empresa;
 
-import br.com.unip.stan.resourceserver.domain.Pessoa;
-import br.com.unip.stan.resourceserver.domain.empresa.Empresa;
+import java.util.List;
+
+import br.com.unip.stan.resourceserver.adapter.persistence.jpa.entity.empresa.Empresa;
 
 public interface ObterDetalheEmpresaPort {
 
-	Empresa findByPessoa(Pessoa pessoa);
+
+	Empresa findByCnpj(String cnpj);
+
+	List<Empresa> buscarTodos();
 
 }

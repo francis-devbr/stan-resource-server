@@ -4,10 +4,10 @@ import java.util.Optional;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 
-import br.com.unip.stan.resourceserver.adapter.persistence.jpa.entity.empresa.CargoJpaEntity;
+import br.com.unip.stan.resourceserver.adapter.persistence.jpa.entity.empresa.Cargo;
 
-public interface CargoRepository extends PagingAndSortingRepository<CargoJpaEntity, Long> {
+public interface CargoRepository extends PagingAndSortingRepository<Cargo, Long> {
 
-	Optional<CargoJpaEntity> findByNome(String nome);
+	Optional<Cargo> findByNome(String nome);
 
 }

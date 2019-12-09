@@ -2,10 +2,10 @@ package br.com.unip.stan.resourceserver.port.out.login;
 
 import java.util.Optional;
 
-import br.com.unip.stan.resourceserver.domain.login.Privilege;
+import br.com.unip.stan.resourceserver.adapter.persistence.jpa.entity.base.Privilegio;
 
 public interface ObterDetalhePrivilegePort {
 
-	Optional<Privilege> obter(String name);
+	Optional<Privilegio> obter(String name);
 
 }

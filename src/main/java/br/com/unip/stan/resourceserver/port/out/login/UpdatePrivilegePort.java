@@ -1,9 +1,9 @@
 package br.com.unip.stan.resourceserver.port.out.login;
 
-import br.com.unip.stan.resourceserver.domain.login.Privilege;
+import br.com.unip.stan.resourceserver.adapter.persistence.jpa.entity.base.Privilegio;
 
 public interface UpdatePrivilegePort {
 
-	Privilege salvar(Privilege privilege);
+	Privilegio salvar(Privilegio privilege);
 
 }

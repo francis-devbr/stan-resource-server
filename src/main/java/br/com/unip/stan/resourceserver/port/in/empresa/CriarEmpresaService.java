@@ -1,6 +1,6 @@
 package br.com.unip.stan.resourceserver.port.in.empresa;
 
-import br.com.unip.stan.resourceserver.domain.empresa.Empresa;
+import br.com.unip.stan.resourceserver.adapter.persistence.jpa.entity.empresa.Empresa;
 
 public interface CriarEmpresaService {
 

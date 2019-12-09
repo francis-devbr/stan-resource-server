@@ -2,7 +2,7 @@ package br.com.unip.stan.resourceserver.usecase.motorista;
 
 import org.springframework.stereotype.Component;
 
-import br.com.unip.stan.resourceserver.domain.motorista.Motorista;
+import br.com.unip.stan.resourceserver.adapter.persistence.jpa.entity.motorista.Motorista;
 import br.com.unip.stan.resourceserver.port.in.motorista.CriarMotoristaService;
 import br.com.unip.stan.resourceserver.port.out.motorista.UpdateMotoristaPort;
 import lombok.RequiredArgsConstructor;

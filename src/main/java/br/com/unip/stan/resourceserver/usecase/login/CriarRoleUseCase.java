@@ -5,8 +5,8 @@ import java.util.Collection;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
 
-import br.com.unip.stan.resourceserver.domain.login.Privilege;
-import br.com.unip.stan.resourceserver.domain.login.Role;
+import br.com.unip.stan.resourceserver.adapter.persistence.jpa.entity.base.Privilegio;
+import br.com.unip.stan.resourceserver.adapter.persistence.jpa.entity.base.Regra;
 import br.com.unip.stan.resourceserver.port.in.login.CriarRoleService;
 import br.com.unip.stan.resourceserver.port.out.login.ObterDetalheRolePort;
 import br.com.unip.stan.resourceserver.port.out.login.UpdateRolePort;
@@ -20,12 +20,12 @@ public class CriarRoleUseCase implements CriarRoleService {
 	private final ObterDetalheRolePort obterDadosRolePort;
 
 	@Override
-	public Role createRoleIfNotFound(String name, Collection<Privilege> privileges) {
+	public Regra createRoleIfNotFound(String name, Collection<Privilegio> privileges) {
 
-		Role role = obterDadosRolePort.obter(name).orElse(null);
+		Regra role = obterDadosRolePort.obter(name).orElse(null);
 
 		if (ObjectUtils.isEmpty(role)) {
-			role = updateRolePort.salvar(Role.builder().name(name).privileges(privileges).build());
+			role = updateRolePort.salvar(Regra.builder().nome(name).privilegios(privileges).build());
 		}
 
 		return role;
