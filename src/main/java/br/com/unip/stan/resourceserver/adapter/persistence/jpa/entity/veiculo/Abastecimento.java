@@ -1,5 +1,6 @@
-package br.com.unip.stan.resourceserver.adapter.persistence.jpa.entity.roteirizacao;
+package br.com.unip.stan.resourceserver.adapter.persistence.jpa.entity.veiculo;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
@@ -7,9 +8,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import br.com.unip.stan.resourceserver.adapter.persistence.jpa.entity.base.BaseEntity;
-import br.com.unip.stan.resourceserver.adapter.persistence.jpa.entity.localizacao.Endereco;
-import br.com.unip.stan.resourceserver.adapter.persistence.jpa.entity.motorista.Motorista;
-import br.com.unip.stan.resourceserver.adapter.persistence.jpa.entity.veiculo.Veiculo;
+import br.com.unip.stan.resourceserver.adapter.persistence.jpa.entity.empresa.Empresa;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -19,29 +18,25 @@ import lombok.experimental.SuperBuilder;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "VIAGEM")
+@Table(name = "ABASTECIMENTO")
 @Entity
 @Getter
 @Setter
 @SuperBuilder
 @EqualsAndHashCode(callSuper = false)
-public class Viagem extends BaseEntity {
+public class Abastecimento extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
 
 	@ManyToOne
-	private Motorista motorista;
-	
-
-	@ManyToOne
 	private Veiculo veiculo;
+	private String cnpj;
+	private BigDecimal litro;
+	private BigDecimal valor;
+	private String cupom;
+	private LocalDate abastecidoEm;
+	private BigDecimal km;
 	
-	@ManyToOne
-	private Endereco origem;
 	
-	@ManyToOne
-	private Endereco destino;
-	
-	private LocalDate viagemRealizadaEm;
 	
 }

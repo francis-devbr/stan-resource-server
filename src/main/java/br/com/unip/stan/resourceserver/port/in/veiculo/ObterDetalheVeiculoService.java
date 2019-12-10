@@ -9,5 +9,4 @@ public interface ObterDetalheVeiculoService {
 	List<Veiculo> obterTodos();
 
 	Veiculo obter(String cnpj, Long id);
-
 }

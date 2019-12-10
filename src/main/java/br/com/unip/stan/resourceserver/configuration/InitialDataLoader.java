@@ -18,6 +18,7 @@ import br.com.unip.stan.resourceserver.adapter.persistence.jpa.entity.empresa.Em
 import br.com.unip.stan.resourceserver.adapter.persistence.jpa.entity.empresa.Funcionario;
 import br.com.unip.stan.resourceserver.adapter.persistence.jpa.entity.localizacao.Endereco;
 import br.com.unip.stan.resourceserver.adapter.persistence.jpa.entity.motorista.Motorista;
+import br.com.unip.stan.resourceserver.adapter.persistence.jpa.entity.veiculo.Abastecimento;
 import br.com.unip.stan.resourceserver.adapter.persistence.jpa.entity.veiculo.Categoria;
 import br.com.unip.stan.resourceserver.adapter.persistence.jpa.entity.veiculo.Marca;
 import br.com.unip.stan.resourceserver.adapter.persistence.jpa.entity.veiculo.TipoCombustivel;
@@ -32,6 +33,7 @@ import br.com.unip.stan.resourceserver.port.in.login.CriarPrivilegeService;
 import br.com.unip.stan.resourceserver.port.in.login.CriarRoleService;
 import br.com.unip.stan.resourceserver.port.in.login.CriarUsuarioService;
 import br.com.unip.stan.resourceserver.port.in.motorista.CriarMotoristaService;
+import br.com.unip.stan.resourceserver.port.in.veiculo.CriarAbastecimentoService;
 import br.com.unip.stan.resourceserver.port.in.veiculo.CriarCategoriaService;
 import br.com.unip.stan.resourceserver.port.in.veiculo.CriarMarcaService;
 import br.com.unip.stan.resourceserver.port.in.veiculo.CriarTipoCombustivelService;
@@ -80,6 +82,8 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 	private final ObterDetalheMarcaService obterDetalheMarcaService;
 
 	private final ObterDetalheTipoCombustivelService obterDetalheTipoCombustivelService;
+	
+	private final CriarAbastecimentoService criarAbastecimentoService;
 	
 
 	public void onApplicationEvent(ContextRefreshedEvent event) {
@@ -190,6 +194,18 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 		
 		criarVeiculoService.criar(veiculo);
 		
+		Abastecimento abastecimento = Abastecimento.builder()
+		.veiculo(veiculo)
+		.cnpj(CNPJ_CLIENTE)
+		.litro(BigDecimal.valueOf(45))
+		.valor(BigDecimal.valueOf(5.00))
+		.cupom("171")
+		.abastecidoEm(LocalDate.now())
+		.km(BigDecimal.valueOf(10))
+		.build();
+		
+		criarAbastecimentoService.criar(abastecimento);
+		
 		veiculo = Veiculo.builder()
 				.nome("Palio")
 				.placa("WWW4122")
@@ -211,6 +227,18 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 		
 		criarVeiculoService.criar(veiculo);
 
+		abastecimento = Abastecimento.builder()
+				.veiculo(veiculo)
+				.cnpj(CNPJ_CLIENTE)
+				.litro(BigDecimal.valueOf(30))
+				.valor(BigDecimal.valueOf(5.00))
+				.cupom("172")
+				.abastecidoEm(LocalDate.now())
+				.km(BigDecimal.valueOf(15))
+				.build();
+
+		criarAbastecimentoService.criar(abastecimento);
+		
 		veiculo = Veiculo.builder()
 				.nome("Gol")
 				.placa("NYX4122")
@@ -230,6 +258,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 				.isEnable(true)
 				.build();
 		criarVeiculoService.criar(veiculo);
+		
 	}
 
 	private void createEmpresa() {
