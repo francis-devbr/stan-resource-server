@@ -2,8 +2,8 @@ package br.com.unip.stan.resourceserver.port.in.login;
 
 import java.util.Collection;
 
-import br.com.unip.stan.resourceserver.adapter.persistence.jpa.entity.base.Privilegio;
-import br.com.unip.stan.resourceserver.adapter.persistence.jpa.entity.base.Regra;
+import br.com.unip.stan.resourceserver.domain.entity.Privilegio;
+import br.com.unip.stan.resourceserver.domain.entity.Regra;
 
 public interface CriarRoleService {
 

@@ -27,7 +27,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 	public void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
 		.antMatchers(HttpMethod.OPTIONS).permitAll()
-		.anyRequest().authenticated();
+		.anyRequest().anonymous();
 	}
 	
 	@Override

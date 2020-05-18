@@ -5,19 +5,19 @@ import java.util.Collection;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
 
-import br.com.unip.stan.resourceserver.adapter.persistence.jpa.entity.base.Privilegio;
-import br.com.unip.stan.resourceserver.adapter.persistence.jpa.entity.base.Regra;
+import br.com.unip.stan.resourceserver.domain.entity.Privilegio;
+import br.com.unip.stan.resourceserver.domain.entity.Regra;
 import br.com.unip.stan.resourceserver.port.in.login.CriarRoleService;
-import br.com.unip.stan.resourceserver.port.out.login.ObterDetalheRolePort;
-import br.com.unip.stan.resourceserver.port.out.login.UpdateRolePort;
+import br.com.unip.stan.resourceserver.port.out.login.ObterDetalheRegraPort;
+import br.com.unip.stan.resourceserver.port.out.login.UpdateRegraPort;
 import lombok.RequiredArgsConstructor;
 
 @Component
 @RequiredArgsConstructor
 public class CriarRoleUseCase implements CriarRoleService {
 
-	private final UpdateRolePort updateRolePort;
-	private final ObterDetalheRolePort obterDadosRolePort;
+	private final UpdateRegraPort updateRolePort;
+	private final ObterDetalheRegraPort obterDadosRolePort;
 
 	@Override
 	public Regra createRoleIfNotFound(String name, Collection<Privilegio> privileges) {

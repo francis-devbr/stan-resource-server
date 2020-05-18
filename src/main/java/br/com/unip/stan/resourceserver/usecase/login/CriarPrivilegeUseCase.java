@@ -3,18 +3,18 @@ package br.com.unip.stan.resourceserver.usecase.login;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
 
-import br.com.unip.stan.resourceserver.adapter.persistence.jpa.entity.base.Privilegio;
+import br.com.unip.stan.resourceserver.domain.entity.Privilegio;
 import br.com.unip.stan.resourceserver.port.in.login.CriarPrivilegeService;
-import br.com.unip.stan.resourceserver.port.out.login.ObterDetalhePrivilegePort;
-import br.com.unip.stan.resourceserver.port.out.login.UpdatePrivilegePort;
+import br.com.unip.stan.resourceserver.port.out.login.ObterDetalhePrivilegioPort;
+import br.com.unip.stan.resourceserver.port.out.login.UpdatePrivilegioPort;
 import lombok.RequiredArgsConstructor;
 
 @Component
 @RequiredArgsConstructor
 public class CriarPrivilegeUseCase implements CriarPrivilegeService {
 
-	private final ObterDetalhePrivilegePort obterDadosPrivilegePort;
-	private final UpdatePrivilegePort updatePrivilegePort;
+	private final ObterDetalhePrivilegioPort obterDadosPrivilegePort;
+	private final UpdatePrivilegioPort updatePrivilegePort;
 
 	@Override
 	public Privilegio createPrivilegeIfNotFound(String name) {
